@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Дашборд шиномонтажа</title>
+</head>
+<body>
+
+<h1>Система записи на шиномонтаж</h1>
+
+<a href="/add">Добавить запись</a>
+
+<h2>Список записей</h2>
+
+<table border="1">
+
+    <tr>
+        <th>ID</th>
+        <th>Клиент</th>
+        <th>Услуга</th>
+        <th>Дата</th>
+        <th>Действие</th>
+    </tr>
+
+    {% for item in appointments %}
+    <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.service }}</td>
+        <td>{{ item.date }}</td>
+
+        <td>
+            <a href="/delete/{{ item.id }}">
+                Удалить
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<h3>
+Всего записей: {{ appointments|length }}
+</h3>
+
+</body>
+</html>
